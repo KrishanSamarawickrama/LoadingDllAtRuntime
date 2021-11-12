@@ -18,7 +18,10 @@ foreach (var module in pluginModules ?? Enumerable.Empty<ModuleInfo>())
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(o =>
+{
+    o.CustomSchemaIds(type => type.ToString());
+});
 
 #endregion Add services to the container
 
